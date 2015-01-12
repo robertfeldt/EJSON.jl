@@ -1,0 +1,3 @@
+module EJSON
+
+end
