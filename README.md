@@ -11,10 +11,10 @@
 ```julia
 import EJSON
 
-s = "{\"a_number\" : 5.0, \"an_array\" : [\"string\", 9], \"a_date\": {\"$date\": 1358205756553}}"
+s = "{\"a_number\" : 5.0, \"an_array\" : [\"str\", 9], \"a_date\": {\"$date\": 1358205756553}}"
 j = EJSON.parse(s)
 #  Dict{String,Any} with 3 entries:
-#    "an_array" => {"string",9}
+#    "an_array" => {"str",9}
 #    "a_number" => 5.0
 #    "a_date"   => 2013-01-14T23:22:36.553
 
