@@ -25,7 +25,8 @@ task :coretest do
 end
 task :ct => :coretest
 
-def autotest(verbosity = 2, minReps = 30, maxReps = 1000, maxRepTime = 1.0, func = "test", timeToRun = -1.0)
+def autotest(verbosity = 2, minReps = 30, maxReps = 1000, maxRepTime = 1.0, 
+  func = "test", timeToRun = -1.0)
   cmd = "#{Command} -e 'using Autotest; Autotest.#{func}(\"#{LibName}\"; testdir = \"#{TestDir}\", " + 
     "verbosity = #{verbosity}" +
     ", MinRepetitions = #{minReps}, MaxRepetitions = #{maxReps}, MaxRepeatTime = #{maxRepTime}" +
