@@ -33,21 +33,20 @@ test("e") do
     @check j["menu"]["items"][2]["label"] == "Open New"
 end
 
+test("flickr") do
+    k = JSON.parse(flickr)
+    @check k != nothing
+    @check k["totalItems"] == 222
+    @check k["items"][1]["description"][12] == '\"'
 end
 
-#
-#validate_flickr(flickr) = begin
-#                              k = JSON.parse(flickr)
-#                              @check k != nothing
-#                              @check k["totalItems"] == 222
-#                              @check k["items"][1]["description"][12] == '\"'
-#                          end
-#
-#validate_unicode(unicode) = begin
-#                                u = JSON.parse(unicode)
-#                                @check u != nothing
-#                                @check u["অলিম্পিকস"]["রেকর্ড"][2]["Marathon"] == "জনি হেইস"
-#                            end
+
+test("unicode") do
+    u = JSON.parse(unicode)
+    @check u != nothing
+    @check u["অলিম্পিকস"]["রেকর্ড"][2]["Marathon"] == "জনি হেইস"
+end
+
 ## -------
 #
 #finished_async_tests = RemoteRef()
@@ -231,3 +230,5 @@ end
 #@check (JSON.json(symtest) == "{\"symbolarray\":[\"apple\",\"pear\"],\"symbolsingleton\":\"hello\"}"
 #         || JSON.json(symtest) == "{\"symbolsingleton\":\"hello\",\"symbolarray\":[\"apple\",\"pear\"]}")
 #
+
+end

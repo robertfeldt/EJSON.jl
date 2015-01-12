@@ -87,12 +87,7 @@ task :testlatest do
     exit(-1)
   end
   latest_changed_test_file = files.first
-  if File.dirname(latest_changed_test_file).strip == "test/selftests"
-    sh "#{Command} -e 'using Autotest; Autotest.run_tests_in_file(\"#{LibName}\", \"#{latest_changed_test_file}\")'"
-  else
-    # It it is a core test file that was last changed we run them all...
-    runtestfile "test/runtests.jl"
-  end
+  sh "#{Command} -e 'using Autotest; Autotest.run_tests_in_file(\"#{LibName}\", \"#{latest_changed_test_file}\")'"
 end
 
 desc "Shorthand for testlatest: Run only the latest changed test file"
