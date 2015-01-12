@@ -19,7 +19,7 @@ test("c") do
 end
 
 test("e") do
-    j=EJSON.parse(e)
+    j = EJSON.parse(e)
     @check j != nothing
     @check typeof(j) == Dict{AbstractString, Any}
     @check length(j) == 1
@@ -34,7 +34,7 @@ test("e") do
 end
 
 test("flickr") do
-    k = JSON.parse(flickr)
+    k = EJSON.parse(flickr)
     @check k != nothing
     @check k["totalItems"] == 222
     @check k["items"][1]["description"][12] == '\"'
@@ -42,7 +42,7 @@ end
 
 
 test("unicode") do
-    u = JSON.parse(unicode)
+    u = EJSON.parse(unicode)
     @check u != nothing
     @check u["অলিম্পিকস"]["রেকর্ড"][2]["Marathon"] == "জনি হেইস"
 end
